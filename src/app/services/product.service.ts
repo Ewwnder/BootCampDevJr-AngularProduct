@@ -1,0 +1,22 @@
+import { Injectable } from '@angular/core';
+import { Product } from '../interfaces/Product';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+
+
+  products : Product[] = [];
+  constructor() { }
+
+  getProducts() : Product[]{   //Recupera todos os produtos
+    return this.products;
+  }
+
+  save(product:Product){
+    product.id = this.products.length+1;
+    this.products.push(product);
+  }
+}
+
